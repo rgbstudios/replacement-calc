@@ -40,3 +40,20 @@ img {
 .st-btn {
   background-color: #333 !important;
 }
+
+.blueText {
+  color: #339;
+}
+.redText {
+  color: #933;
+}
+.greenText {
+  color: #393;
+}
+
+/*unique to replacement calc from binomial calc*/
+#demoP {
+  background-color: hsl(240, 50%, 80%);
+  padding: 10px;
+
+}

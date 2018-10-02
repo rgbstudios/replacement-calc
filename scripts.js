@@ -149,6 +149,8 @@ function calc() {
   document.getElementById("greaterEqualOutput").value = round(equal(N, m, n, k) + greater(N, m, n, k),10);
   // document.getElementById("infoP").innerHTML = "Mean (&mu;) = " + round(mean(p, n, x),10) + "<br>Variance (&sigma;) = " + round(variance(p, n, x),10) + "<br>  Standard Deviation (&sigma;<sup>2</sup>) = " + round(stddev(p, n, x),10);
 
+  document.getElementById("demoP").innerHTML = "<b>Example</b>: A deck of <b>" + N + "</b> (N) cards has <b>" + m + "</b> (m) red cards. If we draw <b>" + n + "</b> (n) cards, what are the odds <i>exactly</i> <b>" + k + "</b> (k) of them will be red";
+
   //google charts
   google.charts.load('current', {'packages':['corechart','bar']});
   google.charts.setOnLoadCallback(drawChart);

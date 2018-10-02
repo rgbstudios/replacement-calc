@@ -6,3 +6,13 @@ kbd {
 	background-color: #ccc !important;
 	color: #333 !important;
 }
+
+.blueText {
+  color: hsl(240, 50%, 80%) !important;
+}
+.redText {
+  color: hsl(0, 50%, 80%) !important;
+}
+.greenText {
+  color: hsl(120, 50%, 80%) !important;
+}
