@@ -4,7 +4,6 @@ show probabilities of each nchoosek calculation
 
 optimize calculation by storing values for less equal and greater
 
-show formula for X=k
 
 dynamically update a line of text that says:
 	"A deck of N cards has m red cards. If we draw n cards, what are the odds EXACTLY k of them will be red"
@@ -15,4 +14,7 @@ update css
 
 support larger inputs by storing larger numbers
 
-add charts and stuff back
+
+
+can we calc mean, variance, stddev?
+

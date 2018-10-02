@@ -21,7 +21,7 @@
   <link rel="icon" href="icon/favicon.png" type="image/png" sizes="48x48">
 
   <link rel="stylesheet" href="styles.css">
-  <!-- <link id="nightStyles" rel="stylesheet" href=""> -->
+  <link id="nightStyles" rel="stylesheet" href="">
   
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -138,13 +138,13 @@
   <!-- <p id="infoP" class="text-center"></p> -->
 </div>
 
-<!-- <div id="piechart"></div>
-<div id="barchart"></div> -->
+<div id="piechart"></div>
+<div id="barchart"></div>
 
 <hr>
 
 
-<!-- <button type="button" id="learnModalButton" class="btn btn-default btn-lg" data-toggle="modal" data-target="#learnModal" title="about binomial distributions">
+<button type="button" id="learnModalButton" class="btn btn-default btn-lg" data-toggle="modal" data-target="#learnModal" title="about binomial distributions">
   <i class="material-icons">school</i>
 </button>
 <button type="button" id="infoModalButton" class="btn btn-default btn-lg" data-toggle="modal" data-target="#infoModal" title="open info">
@@ -155,58 +155,53 @@
 </button>
 <br><br>
 
-<div class="sharethis-inline-share-buttons"></div>
+<!-- <div class="sharethis-inline-share-buttons"></div> -->
 
 <br>
 
 
 
-<p>&copy; <a href="http://rgbstudios.org" target="_blank">RGB Studios</a><img id="rgbIcon" src="rgb-icon.png"> 2018 </p> -->
+<p>&copy; <a href="http://rgbstudios.org" target="_blank">RGB Studios</a><img id="rgbIcon" src="rgb-icon.png"> 2018 </p>
 
 <!-- learn modal -->
-<!-- <div class="modal fade" id="learnModal" role="dialog">
+<div class="modal fade" id="learnModal" role="dialog">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <h3 class="modal-title"><i class="material-icons">school</i> Binomial Distributions</h3>
+        <h3 class="modal-title"><i class="material-icons">school</i> Picking Without Replacement</h3>
       </div>
       <div class="modal-body">
 
         <p>
-          A binomial experiment with <b>n</b> trials, probability of success <b>p</b>, and <b>x</b> successes, has binomial probability:
-          <br>P(X = x) = <sub>n</sub>C<sub>x</sub> * p<sup>x</sup> * (1 - p)<sup>n - x</sup>
+          When picking n items out of N total items, where m of them are distinct, the odds of picking <i>exactly</i> k distinct items is defined as:
+          <br>P(X = k) = <sub>m</sub>C<sub>k</sub> * <sub>N-m</sub>C<sub>n-k</sub> / <sub>N</sub>C<sub>n</sub>
           <br>
-          <br><sub>n</sub>C<sub>x</sub> ("n choose x"):
+          <br>Where <sub>n</sub>C<sub>x</sub> ("n choose x") is defined as
           <br><sub>n</sub>C<sub>x</sub> = n! / [ x! (n - x)! ]
           <br>
-          <br>Mean (&mu;) = n * p
-          <br>Variance (&sigma;) = n * p * (1-p)
-          <br>Standard Deviation (&sigma;<sup>2</sup>) = &radic; [ n * p * (1-p) ]
         </p>
 
-        <p><i>Note: You might also see &pi; instead of p, or q, which is 1-p</i></p>
+        <hr>
+        
+        <p>Inputs should be positive integers.</p>
+        <p>Picking wihtout replacement means that once you've picked your item, you do not put it back into the pool of items to pick before picking the next item</p>
 
-        <hr><p><b>p</b> must be between 0 and 1, <b>n</b> and <b>x</b> must be positive integers where <b>n</b> &ge; <b>x</b></p>
+        <hr>
 
-        <br><p>Binomial Experiments must:</p>
-        <ul>
-          <li>Involve repeated trials, with only 2 outcomes (success or failure)</li>
-          <li>The probability of a particular outcome is constant and trials are independent</li>
-        </ul>
-
-        <p><a href="https://en.wikipedia.org/wiki/Binomial_distribution" target="_blank">Wikipedia</a>
-        and <a href="https://www.mathsisfun.com/data/binomial-distribution.html" target="_blank">Math is Fun</a> on binomial distributions</p>
+        <p><a href="https://en.wikipedia.org/wiki/Hypergeometric_distribution" target="_blank">Wikipedia on Hypergeometric Distributions</a></p>
+        <p><a href="https://en.wikipedia.org/wiki/Simple_random_sample" target="_blank">Wikipedia on Simple Random Samples</a></p>
+        <p><a href="https://en.wikipedia.org/wiki/Urn_problem" target="_blank">Wikipedia on the Urn Problem</a></p>
 
       </div>
 
     </div>
 
   </div>
-</div> -->
+</div>
 
 <!-- info modal -->
-<!-- <div class="modal fade" id="infoModal" role="dialog">
+<div class="modal fade" id="infoModal" role="dialog">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
@@ -215,28 +210,34 @@
       </div>
       <div class="modal-body">
 
-        <p>You can use <kbd>Tab</kbd> and <kbd>Shift</kbd> + <kbd>Tab</kbd> to navigate inputs</p>
-        <p><kbd>Enter</kbd> to calculate. Refreshes graph size if you've resized your window</p>
+        <p>You can use <kbd>Tab</kbd> and <kbd>Shift</kbd> + <kbd>Tab</kbd> to navigate inputs.</p>
+        <p>Use <kbd>Enter</kbd> to calculate (refreshes graph size if you've resized your window).</p>
         
-        <p>press <kbd>N</kbd> to toggle night mode</p>
+        <p>Press <kbd>N</kbd> to toggle night mode</p>
+
+        <br>
+
+        <ul>View the data as pie and bar charts, where the odds of 
+        <li><span style="color:#339;">exactly k items is represented in <b>blue</b></span>,</li> 
+        <li><span style="color:#933;">less than k items is represented in <b>red</b></span>, and</li> 
+        <li><span style="color:#393;">greater than k items is represented in <n>green</n></span></li>
+        </ul>
 
         <hr>
 
-        <h4><i class="material-icons">android</i> Get the Android app <a href="https://play.google.com/store/apps/details?id=org.rgbstudios.binomialdistributioncalculator" target="_blank">here</a></h4>
-
         <p>Made with <a target="_blank" href="https://developers.google.com/chart">Google Charts</a>, 
           <a target="_blank" href="https://material.io/icons/">Material Icons</a>, 
-          <a target="_blank" href="https://getbootstrap.com">Bootstrap</a></p>, and
+          <a target="_blank" href="https://getbootstrap.com">Bootstrap</a>, and
           <a target="_blank" href="http://imgbot.net">ImgBot</a></p>
 
 
-        <p>View on Github <a href="https://github.com/rgbstudios/binomial-calc" target="_blank">here</a></p>
+        <p>View on Github <a href="https://github.com/rgbstudios/replacement-calc" target="_blank">here</a></p>
 
-        <p>V.1.0.3</p>
+        <p>V.1.0.0</p>
 
         <hr> 
 
-        <button type="button" class="btn btn-default btn-lg" title="contact me" onclick="window.open('mailto:justingolden@rgbstudios.org?subject=Binomial%20Calc')">
+        <button type="button" class="btn btn-default btn-lg" title="contact me" onclick="window.open('mailto:justingolden@rgbstudios.org?subject=Replacement%20Calc')">
           <i class="material-icons">email</i>
         </button>
 
@@ -255,7 +256,7 @@
     </div>
 
   </div>
-</div> -->
+</div>
 
 
 

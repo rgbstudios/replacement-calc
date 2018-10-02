@@ -57,9 +57,9 @@ document.onkeyup = function(e) {
   // else if(code == 73) { //"i"
   //   document.getElementById('infoModalButton').click();
   // }
-  // else if(code == 78) { //"n"
-  //   document.getElementById('nightButton').click(); 
-  // }
+  else if(code == 78) { //"n"
+    document.getElementById('nightButton').click(); 
+  }
 }
 
 function clear() {
@@ -70,27 +70,27 @@ function clear() {
   console.log('Cleared');
 }
 
-//https://stackoverflow.com/questions/3900701/onclick-go-full-screen?utm_medium=organic&utm_source=google_rich_qa&utm_campaign=google_rich_qa
-// function toggleFullscreen() {
-//   if ((document.fullScreenElement && document.fullScreenElement !== null) ||    
-//    (!document.mozFullScreen && !document.webkitIsFullScreen)) {
-//     if (document.documentElement.requestFullScreen) {  
-//       document.documentElement.requestFullScreen();  
-//     } else if (document.documentElement.mozRequestFullScreen) {  
-//       document.documentElement.mozRequestFullScreen();  
-//     } else if (document.documentElement.webkitRequestFullScreen) {  
-//       document.documentElement.webkitRequestFullScreen(Element.ALLOW_KEYBOARD_INPUT);  
-//     }  
-//   } else {  
-//     if (document.cancelFullScreen) {  
-//       document.cancelFullScreen();  
-//     } else if (document.mozCancelFullScreen) {  
-//       document.mozCancelFullScreen();  
-//     } else if (document.webkitCancelFullScreen) {  
-//       document.webkitCancelFullScreen();  
-//     }  
-//   }  
-// }
+https://stackoverflow.com/questions/3900701/onclick-go-full-screen?utm_medium=organic&utm_source=google_rich_qa&utm_campaign=google_rich_qa
+function toggleFullscreen() {
+  if ((document.fullScreenElement && document.fullScreenElement !== null) ||    
+   (!document.mozFullScreen && !document.webkitIsFullScreen)) {
+    if (document.documentElement.requestFullScreen) {  
+      document.documentElement.requestFullScreen();  
+    } else if (document.documentElement.mozRequestFullScreen) {  
+      document.documentElement.mozRequestFullScreen();  
+    } else if (document.documentElement.webkitRequestFullScreen) {  
+      document.documentElement.webkitRequestFullScreen(Element.ALLOW_KEYBOARD_INPUT);  
+    }  
+  } else {  
+    if (document.cancelFullScreen) {  
+      document.cancelFullScreen();  
+    } else if (document.mozCancelFullScreen) {  
+      document.mozCancelFullScreen();  
+    } else if (document.webkitCancelFullScreen) {  
+      document.webkitCancelFullScreen();  
+    }  
+  }  
+}
 
 function calc() {
 
@@ -150,66 +150,66 @@ function calc() {
   // document.getElementById("infoP").innerHTML = "Mean (&mu;) = " + round(mean(p, n, x),10) + "<br>Variance (&sigma;) = " + round(variance(p, n, x),10) + "<br>  Standard Deviation (&sigma;<sup>2</sup>) = " + round(stddev(p, n, x),10);
 
   //google charts
-  // google.charts.load('current', {'packages':['corechart','bar']});
-  // google.charts.setOnLoadCallback(drawChart);
+  google.charts.load('current', {'packages':['corechart','bar']});
+  google.charts.setOnLoadCallback(drawChart);
 
-  // function drawChart() {
-  //   //pie
-  //   let data = google.visualization.arrayToDataTable([
-  //     ['Set', 'Odds'],
-  //     ['P(X=x)', round(equal(p, n, x),5)],
-  //     ['P(X<x)', round(less(p, n, x),5)],
-  //     ['P(X>x)', round(greater(p, n, x),5)]
-  //   ]);
+  function drawChart() {
+    //pie
+    let data = google.visualization.arrayToDataTable([
+      ['Set', 'Odds'],
+      ['P(X=k)', round(equal(N, m, n, k),5)],
+      ['P(X<k)', round(less(N, m, n, k),5)],
+      ['P(X>k)', round(greater(N, m, n, k),5)]
+    ]);
 
-  //   let options = {
-  //     'title':'Binomial Distribution', 
-  //     legend: {textStyle:{color: night ? '#ccc' : '#333'}}, 
-  //     titleTextStyle:{color: night ? '#ccc' : '#333'}, 
-  //     'width':'75%', 
-  //     colors: ['#339', '#933', '#393'], 
-  //     backgroundColor: { fill:'transparent' } 
-  //   };
+    let options = {
+      'title':'Picking Without Replacement Probability Distribution', 
+      legend: {textStyle:{color: night ? '#ccc' : '#333'}}, 
+      titleTextStyle:{color: night ? '#ccc' : '#333'}, 
+      'width':'75%', 
+      colors: ['#339', '#933', '#393'], 
+      backgroundColor: { fill:'transparent' }
+    };
 
-  //   let chart = new google.visualization.PieChart(document.getElementById('piechart'));
-  //   chart.draw(data, options);
+    let chart = new google.visualization.PieChart(document.getElementById('piechart') );
+    chart.draw(data, options);
 
-  //   //bar
-  //   let chartdata = [['','', { role: 'style' } ]];
-  //   for(let numSuccesses = 0; numSuccesses<n+1; numSuccesses++) {
-  //     let color = "#933";
-  //     if(numSuccesses==x) {color="#339";}
-  //     if(numSuccesses>x) {color="#393";}
-  //     chartdata.push([numSuccesses, equal(p,n,numSuccesses), color]);
-  //   }
+    //bar
+    let chartdata = [['','', { role: 'style' } ]];
+    for(let i = 0; i<n+1; i++) {
+      let color = "#933";
+      if(i==k) {color="#339";}
+      if(i>k) {color="#393";}
+      chartdata.push([i, equal(N, m, n, i), color]);
+    }
 
-  //   data = google.visualization.arrayToDataTable(chartdata);
+    data = google.visualization.arrayToDataTable(chartdata);
 
-  //   options = {
-  //     title: 'Odds by number of successes', 
-  //     titleTextStyle:{color: night ? '#ccc' : '#333'},
-  //     legend: 'none',
-  //     chartArea: {width: '75%', legend:{position: 'none'} },
-  //     hAxis: {
-  //       title: 'Number of Successes x',
-  //       textStyle:{color: night ? '#ccc' : '#333'},
-  //       titleTextStyle:{color: night ? '#ccc' : '#333'}
-  //     },
-  //     vAxis: {
-  //       title: 'P(x)',
-  //       textStyle:{color: night ? '#ccc' : '#333'},
-  //       titleTextStyle:{color: night ? '#ccc' : '#333'}
-  //     },
-  //     backgroundColor: { fill:'transparent' }
-  //   };
+    options = {
+      title: 'Odds by number of distinct items picked (k)', 
+      titleTextStyle:{color: night ? '#ccc' : '#333'},
+      legend: 'none',
+      chartArea: {width: '75%', legend:{position: 'none'} },
+      hAxis: {
+        title: 'Number of Distinct Items (k)',
+        textStyle:{color: night ? '#ccc' : '#333'},
+        titleTextStyle:{color: night ? '#ccc' : '#333'}
+      },
+      vAxis: {
+        title: 'P(X=k)',
+        textStyle:{color: night ? '#ccc' : '#333'},
+        titleTextStyle:{color: night ? '#ccc' : '#333'}
+      },
+      backgroundColor: { fill:'transparent' }
+    };
   
-  //   chart = new google.visualization.ColumnChart(document.getElementById('barchart'));
-  //   chart.draw(data, options);
-  // } //end drawChart
+    chart = new google.visualization.ColumnChart(document.getElementById('barchart') );
+    chart.draw(data, options);
+  } //end drawChart
 
 } //end calc
 
-// let night = false;
+let night = false;
 
 
 $(document).ready(function() {
@@ -237,7 +237,6 @@ $(document).ready(function() {
   //copy buttons
   $('button.copy').click(function() {
     let input = $(this).prev('input'); //select adjacent input
-    console.log(input);
     input.prop('disabled',false); //.attr and .disabled didn't work...
     input.select();
     document.execCommand('copy');
@@ -248,26 +247,26 @@ $(document).ready(function() {
     clear();
   });
 
-  // $('#fullscreenButton').click(function() {
-  //   toggleFullscreen();
-  // });
+  $('#fullscreenButton').click(function() {
+    toggleFullscreen();
+  });
 
-  // $('#nightButton').click(function() {
-  //   night = !night;
-  //   if(night) {
-  //     $('#nightStyles').prop('href','styles-night.css');
-  //     $('#metaColor1').prop('content','#333');
-  //     $('#metaColor2').prop('content','#333');
-  //     $('#metaColor3').prop('content','#333');
-  //     calc(); //update google chart with correct color. when your night mode function is O(n^3)...
-  //   }
-  //   else {
-  //     $('#nightStyles').prop('href','');
-  //     $('#metaColor1').prop('content','#ccc');
-  //     $('#metaColor2').prop('content','#ccc');
-  //     $('#metaColor3').prop('content','#ccc');
-  //     calc();
-  //   }
-  // });
+  $('#nightButton').click(function() {
+    night = !night;
+    if(night) {
+      $('#nightStyles').prop('href','styles-night.css');
+      $('#metaColor1').prop('content','#333');
+      $('#metaColor2').prop('content','#333');
+      $('#metaColor3').prop('content','#333');
+      calc(); //update google chart with correct color. when your night mode function is O(n^3)...
+    }
+    else {
+      $('#nightStyles').prop('href','');
+      $('#metaColor1').prop('content','#ccc');
+      $('#metaColor2').prop('content','#ccc');
+      $('#metaColor3').prop('content','#ccc');
+      calc();
+    }
+  });
 
 });
