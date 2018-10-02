@@ -1,0 +1,18 @@
+add modals and utility functions like night, fullscreen, contact, donate, sharethis, analytics
+
+show probabilities of each choose this calculation
+
+optimize calculation by storing values for less equal and greater
+
+show formula for X=k
+
+dynamically update a line of text that says:
+	"A deck of N cards has m red cards. If we draw n cards, what are the odds EXACTLY k of them will be red"
+
+edit readme
+
+update icon
+
+update css
+
+support larger inputs by storing larger numbers
