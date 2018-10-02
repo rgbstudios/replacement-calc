@@ -1,6 +1,6 @@
 function nchoosek(n,k){
   let result = 1;
-  for(let i = 1; i <= k; i++){
+  for(let i = 1; i <= k; i++) {
     result *= (n+1-i)/i;
   }
   return result;

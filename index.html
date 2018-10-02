@@ -187,6 +187,7 @@
         <hr>
         
         <p>Inputs should be positive integers. Non-integer inputs will be rounded down.</p>
+
         <p>Picking wihtout replacement means that once you've picked your item, you do not put it back into the pool of items to pick before picking the next item</p>
 
         <hr>
@@ -227,6 +228,12 @@
         <li><span style="color:#933;">less than k items is represented in <b>red</b></span>, and</li> 
         <li><span style="color:#393;">greater than k items is represented in <n>green</n></span></li>
         </ul>
+
+        <br>
+
+        <p>Note that we limit input to 1000. This is because when calculating n choose k for inputs of 1000 and 500, we get about 1e300, which is a number larger than should ever been needed, and is just approaching the largest number Javascript will store.</p>
+        <p>To put this into perspective: Say we take every particle in the known universe and multiply that number by the number of nanoseconds the universe has been alive. This number squared is significantly less than 1e300.</p>
+
 
         <hr>
 
