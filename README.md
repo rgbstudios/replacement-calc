@@ -4,7 +4,7 @@
 
 ### Use Replacement Calc to calculate the probabilities of picking a certain number of objects without replacement, such as picking marbles or cards
 
-<a href="https://rgbstudios.org/binomial-calc">rgbstudios.org/replacement-calc</a>
+<a href="https://rgbstudios.org/replacement-calc">rgbstudios.org/replacement-calc</a>
 
 ### Parameters
 
@@ -38,13 +38,11 @@ Then:
 
 When picking n items out of N total items, where m of them are distinct, the odds of picking <i>exactly</i> k distinct items is defined as:
 
-P(X = k) = <sub>m</sub>C<sub>k</sub> * <sub>N-m</sub>C<sub>n-k</sub> / <sub>N</sub>C<sub>n</sub>
-
-
+- P(X = k) = <sub>m</sub>C<sub>k</sub> * <sub>N-m</sub>C<sub>n-k</sub> / <sub>N</sub>C<sub>n</sub>
 
 Where <sub>n</sub>C<sub>x</sub> ("n choose x") is defined as
 
-<sub>n</sub>C<sub>x</sub> = n! / [ x! (n - x)! ]
+- <sub>n</sub>C<sub>x</sub> = n! / [ x! (n - x)! ]
 
 <hr>
 
