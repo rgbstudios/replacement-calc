@@ -6,38 +6,29 @@
 
 <a href="https://rgbstudios.org/binomial-calc">rgbstudios.org/replacement-calc</a>
 
+### Parameters
 
-<tr>
-<td><p>Total number of items</p></td>
-<td><b>N</b></td>
-<td><input autofocus id="NInput" class="form-control" type="number" value="60" step="1" min="1" max="9999"><br></td>
-</tr>
+Enter the following inputs:
 
-<tr>
-<td><p>Number of distinct items</p></td>
-<td><b>m</b></td>
-<td><input id="mInput" class="form-control" type="number" value="22" min="0" max="9999"><br></td>
-</tr>
+- Total number of items (N)
 
-<tr>
-<td><p>Number of items picked</p></td>
-<td><b>n</b></td>
-<td><input id="nInput" class="form-control" type="number" value="16" min="0" max="9999"><br></td>
-</tr>
+- Number of distinct items (m)
 
-<tr>
-<td><p>Number of distinct items picked</p></td>
-<td><b>k</b></td>
-<td><input id="kInput" class="form-control" type="number" value="10" min="0" max="9999"><br></td>
-</tr>
+- Number of items picked (n)
 
+- Number of distinct items picked (k)
 
-- Enter the probability of an event (p), the number of trials (n), and the number of successes (x) 
+Then:
 
 - Click "Calculate" and view the probability of exactly that many successes, as well as the cumulative probability of less or more successes
 
-- View each of these probabilities represented in a pie chart, and view the odds of each number of successes on a bar graph, colored based on your number of successes
+### Uses
 
+- Studying statistics
+
+- Drew too many or too few lands or energy in a tcg
+
+- Playing games with a standard 52 or 54 card poker deck
 
 <hr>
 
