@@ -46,7 +46,7 @@ Where <sub>n</sub>C<sub>x</sub> ("n choose x") is defined as
 
 <hr>
 
-V.1.0.0
+V.1.0.1
 
 by Justin Golden for RGB Studios
 

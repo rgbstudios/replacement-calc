@@ -4,10 +4,13 @@ optimize calculation by storing values for less equal and greater
 
 support larger inputs by storing larger numbers
 
-
-
 show probabilities of each nchoosek calculation
 
+can we calc variance, stddev?
 
 
-can we calc mean, variance, stddev?
+fix overflow, roudning, efficiency problems for very large input
+
+make table more mobile friendly
+
+sampling with replacement? checkbox?

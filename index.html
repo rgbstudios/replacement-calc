@@ -46,25 +46,25 @@
       <tr>
         <td><p>Total number of items</p></td>
         <td><b>N</b></td>
-        <td><input autofocus id="NInput" class="form-control" type="number" value="60" step="1" min="1" max="9999"><br></td>
+        <td><input autofocus id="NInput" class="form-control" type="number" step="1" min="1" max="9999"><br></td>
       </tr>
 
       <tr>
         <td><p>Number of distinct items</p></td>
         <td><b>m</b></td>
-        <td><input id="mInput" class="form-control" type="number" value="22" min="0" max="9999"><br></td>
+        <td><input id="mInput" class="form-control" type="number" min="0" max="9999"><br></td>
       </tr>
 
       <tr>
         <td><p>Number of items picked</p></td>
         <td><b>n</b></td>
-        <td><input id="nInput" class="form-control" type="number" value="16" min="0" max="9999"><br></td>
+        <td><input id="nInput" class="form-control" type="number" min="0" max="9999"><br></td>
       </tr>
 
       <tr>
         <td><p>Number of distinct items picked</p></td>
         <td><b>k</b></td>
-        <td><input id="kInput" class="form-control" type="number" value="10" min="0" max="9999"><br></td>
+        <td><input id="kInput" class="form-control" type="number" min="0" max="9999"><br></td>
       </tr>
 
       <tr>
@@ -136,7 +136,7 @@
   </table>
   </div>
   <p id="demoP" class="text-center"></p>
-  <!-- <p id="infoP" class="text-center"></p> -->
+  <p id="infoP" class="text-center"></p>
 </div>
 
 <div id="piechart"></div>
@@ -181,11 +181,12 @@
           <br>Where <sub>n</sub>C<sub>x</sub> ("n choose x") is defined as
           <br><sub>n</sub>C<sub>x</sub> = n! / [ x! (n - x)! ]
           <br>
+          <br>Mean: n * m / N
         </p>
 
         <hr>
         
-        <p>Inputs should be positive integers.</p>
+        <p>Inputs should be positive integers. Non-integer inputs will be rounded down.</p>
         <p>Picking wihtout replacement means that once you've picked your item, you do not put it back into the pool of items to pick before picking the next item</p>
 
         <hr>
@@ -237,7 +238,7 @@
 
         <p>View on Github <a href="https://github.com/rgbstudios/replacement-calc" target="_blank">here</a></p>
 
-        <p>V.1.0.0</p>
+        <p>V.1.0.1</p>
 
         <hr> 
 

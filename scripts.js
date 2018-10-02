@@ -1,14 +1,3 @@
-
-/*
-v.1.0.2 5-21
-todo:
-
-fix overflow, roudning, efficiency problems for very large input
-make table more mobile friendly
-use realfavicongenerator.net
-
-*/
-
 function nchoosek(n,k){
   let result = 1;
   for(let i = 1; i <= k; i++){
@@ -35,15 +24,9 @@ function greater(N, m, n, k) {
   return result;
 }
 
-// function mean(p,n,x) {
-//   return n*p;
-// }
-// function variance(p,n,x) {
-//   return n * p * (1-p);
-// }
-// function stddev(p,n,x) {
-//   return Math.sqrt(variance(p,n,x));
-// }
+function mean(N, m, n, k) {
+  return m*n/N;
+}
 
 function round(num, digits) {
   return (Math.round(num*Math.pow(10,digits) ) / Math.pow(10,digits) );
@@ -54,9 +37,6 @@ document.onkeyup = function(e) {
   if(code == 13){ //enter
     calc();
   }
-  // else if(code == 73) { //"i"
-  //   document.getElementById('infoModalButton').click();
-  // }
   else if(code == 78) { //"n"
     document.getElementById('nightButton').click(); 
   }
@@ -70,7 +50,7 @@ function clear() {
   console.log('Cleared');
 }
 
-https://stackoverflow.com/questions/3900701/onclick-go-full-screen?utm_medium=organic&utm_source=google_rich_qa&utm_campaign=google_rich_qa
+//https://stackoverflow.com/questions/3900701/onclick-go-full-screen?utm_medium=organic&utm_source=google_rich_qa&utm_campaign=google_rich_qa
 function toggleFullscreen() {
   if ((document.fullScreenElement && document.fullScreenElement !== null) ||    
    (!document.mozFullScreen && !document.webkitIsFullScreen)) {
@@ -134,7 +114,6 @@ function calc() {
     return;
   }
 
-  //TODO: check for whole numbers
 
   //only if valid inputs
   history.replaceState({}, "", "?N=" + N + "&m=" + m + "&n=" + n + "&k=" + k);
@@ -147,9 +126,9 @@ function calc() {
   document.getElementById("greaterOutput").value = round(greater(N, m, n, k),10);
   document.getElementById("lessEqualOutput").value = round(equal(N, m, n, k) + less(N, m, n, k),10);
   document.getElementById("greaterEqualOutput").value = round(equal(N, m, n, k) + greater(N, m, n, k),10);
-  // document.getElementById("infoP").innerHTML = "Mean (&mu;) = " + round(mean(p, n, x),10) + "<br>Variance (&sigma;) = " + round(variance(p, n, x),10) + "<br>  Standard Deviation (&sigma;<sup>2</sup>) = " + round(stddev(p, n, x),10);
+  document.getElementById("infoP").innerHTML = "Mean (&mu;) = " + round(mean(N, m, n, k),10);
 
-  document.getElementById("demoP").innerHTML = "<b>Example</b>: A deck of <b>" + N + "</b> (N) cards has <b>" + m + "</b> (m) red cards. If we draw <b>" + n + "</b> (n) cards, what are the odds <i>exactly</i> <b>" + k + "</b> (k) of them will be red";
+  document.getElementById("demoP").innerHTML = "<b>Example</b>: A deck of <b>" + N + "</b> (N) cards has <b>" + m + "</b> (m) red cards. If we draw <b>" + n + "</b> (n) cards, what are the odds <i>exactly</i> <b>" + k + "</b> (k) of them will be red?";
 
   //google charts
   google.charts.load('current', {'packages':['corechart','bar']});
@@ -222,10 +201,10 @@ $(document).ready(function() {
   let n = url.searchParams.get("n");
   let k = url.searchParams.get("k");
   console.log("loaded: " + N + ", " + m + ", " + n + ", " + k);
-  document.getElementById("NInput").value = N || "60"; //TODO: edit default values
-  document.getElementById("mInput").value = m || "22";
-  document.getElementById("nInput").value = n || "16";
-  document.getElementById("kInput").value = k || "10";
+  document.getElementById("NInput").value = N || "60";
+  document.getElementById("mInput").value = m || "24";
+  document.getElementById("nInput").value = n || "7";
+  document.getElementById("kInput").value = k || "3";
 
   console.log(document.getElementById("NInput").value);
   console.log(document.getElementById("mInput").value);
