@@ -201,10 +201,11 @@ $(document).ready(function() {
   let n = url.searchParams.get("n");
   let k = url.searchParams.get("k");
   console.log("loaded: " + N + ", " + m + ", " + n + ", " + k);
-  document.getElementById("NInput").value = N || "60";
-  document.getElementById("mInput").value = m || "24";
-  document.getElementById("nInput").value = n || "7";
-  document.getElementById("kInput").value = k || "3";
+  //consider defaults 60,24,7,3
+  document.getElementById("NInput").value = N || "52";
+  document.getElementById("mInput").value = m || "4";
+  document.getElementById("nInput").value = n || "5";
+  document.getElementById("kInput").value = k || "1";
 
   console.log(document.getElementById("NInput").value);
   console.log(document.getElementById("mInput").value);
